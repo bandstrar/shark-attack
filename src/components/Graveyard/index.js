@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import Gravestone from '../GraveStone';
 
 class Graveyard extends Component {
   render() {
     const { students } = this.props;
-    const theyDead = () => students.map((student) => <h1 key={student.id} className='deadStudents'>{student.firstName} {student.lastName}</h1>);
-    return (<div>
+    const theyDead = () => students.map((student) => <Gravestone key={ student.id } student={student} />);
+    return (<div className="graveyard card-container">
             { theyDead() }
         </div>);
   }

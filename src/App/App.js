@@ -5,11 +5,34 @@ import SharkTank from '../components/SharkTank';
 import Graveyard from '../components/Graveyard';
 
 class App extends React.Component {
+  state = {
+    luckyStudents: studentsData.livingStudents(),
+    unluckyStudents: studentsData.dearlyBeloved(),
+  }
+
+  newTank = () => {
+    this.setState({
+      luckyStudents: studentsData.livingStudents(),
+      unluckyStudents: studentsData.dearlyBeloved(),
+    });
+  }
+
+  sharkAttack = () => {
+    if (this.state.luckyStudents.length) {
+      const randoStudo = this.state.luckyStudents[
+        Math.floor(Math.random() * Math.floor(this.state.luckyStudents.length))].id;
+      studentsData.followTheLight(randoStudo);
+    }
+    this.newTank();
+  }
+
   render() {
+    const { luckyStudents, unluckyStudents } = this.state;
     return (
       <div className="App">
-        <SharkTank students={studentsData.livingStudents()} />
-        <Graveyard students={studentsData.dearlyBeloved()} />
+        <button className='btn btn-danger my-2' onClick={this.sharkAttack}>SHARK ATTACK!</button>
+        <SharkTank students={luckyStudents} />
+        <Graveyard students={unluckyStudents} />
       </div>
     );
   }
