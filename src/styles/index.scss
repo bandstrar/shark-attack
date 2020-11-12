@@ -3,5 +3,57 @@
 @import 'variables';
 
 body {
+  background-image: url("../App/sharkTank.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw;
   background-color: $favColor;
+  background-attachment: fixed;
+}
+
+.card-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+.card {
+  margin: 10px 15px;
+}
+
+.graveyard {
+  align-content: flex-end;
+}
+
+.gravestone {
+  background-color: grey;
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
+  height: 200px;
+  width: 200px;
+}
+
+.live-student {
+  background-color: turquoise;
+  position: relative;
+  margin-top: 30px;
+  margin-left: 40px;
+  border-radius: 50%;
+  width: 300px; 
+  height: 100px;
+}
+
+.fa-skull-crossbones {
+  font-size: 50px;
+}
+
+.fa-fish {
+  font-size: 30px;
+}
+
+.here-lies {
+  margin: 15px 0;
+}
+
+.im-alive {
+  margin: 5px 0;
 }
